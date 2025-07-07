@@ -14,156 +14,244 @@
       --bot-msg: #333;
       --user-msg: #4285F4;
       --error-color: #EA4335;
-    }body {
-  margin: 0;
-  font-family: 'Cairo', sans-serif;
-  background-color: var(--dark-bg);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
+    }
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--dark-bg);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
 
-header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  padding: 1em;
-  text-align: center;
-  font-size: 1.5em;
-  position: relative;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      padding: 1em;
+      text-align: center;
+      font-size: 1.5em;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
 
-#chat {
-  flex: 1;
-  padding: 1em;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column-reverse;
-  background: url('https://transparenttextures.com/patterns/dark-geometric.png');
-}
+    #chat {
+      flex: 1;
+      padding: 1em;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column-reverse;
+      background: url('https://transparenttextures.com/patterns/dark-geometric.png');
+    }
 
-.message {
-  margin: 0.5em 0;
-  padding: 1em;
-  border-radius: 15px;
-  max-width: 85%;
-  word-wrap: break-word;
-  line-height: 1.6;
-  animation: fadeIn 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    .message {
+      margin: 0.5em 0;
+      padding: 1em;
+      border-radius: 15px;
+      max-width: 85%;
+      word-wrap: break-word;
+      line-height: 1.6;
+      animation: fadeIn 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    .message img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
 
-.user {
-  align-self: flex-end;
-  background-color: var(--user-msg);
-  color: white;
-  border-bottom-right-radius: 3px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.bot {
-  align-self: flex-start;
-  background-color: var(--bot-msg);
-  border-bottom-left-radius: 3px;
-}
+    .user {
+      align-self: flex-end;
+      background-color: var(--user-msg);
+      color: white;
+      border-bottom-right-radius: 3px;
+    }
 
-footer {
-  display: flex;
-  padding: 1em;
-  background-color: var(--light-bg);
-  border-top: 1px solid #444;
-  gap: 0.5em;
-}
+    .bot {
+      align-self: flex-start;
+      background-color: var(--bot-msg);
+      border-bottom-left-radius: 3px;
+    }
 
-#input-container {
-  flex: 1;
-  display: flex;
-  background-color: #2d2d2d;
-  border-radius: 25px;
-  padding: 0.5em 1em;
-  align-items: center;
-}
+    footer {
+      display: flex;
+      padding: 1em;
+      background-color: var(--light-bg);
+      border-top: 1px solid #444;
+      gap: 0.5em;
+    }
 
-textarea {
-  flex: 1;
-  background: transparent;
-  border: none;
-  color: white;
-  font-family: inherit;
-  resize: none;
-  font-size: 1em;
-  padding: 0.5em;
-  max-height: 120px;
-}
+    #input-container {
+      flex: 1;
+      display: flex;
+      background-color: #2d2d2d;
+      border-radius: 25px;
+      padding: 0.5em 1em;
+      align-items: center;
+    }
 
-textarea:focus { outline: none; }
-textarea::placeholder { color: #aaa; }
+    textarea {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: white;
+      font-family: inherit;
+      resize: none;
+      font-size: 1em;
+      padding: 0.5em;
+      max-height: 120px;
+    }
 
-#send-btn {
-  background: transparent;
-  border: none;
-  color: var(--primary-color);
-  font-size: 1.5em;
-  cursor: pointer;
-  padding: 0 0.5em;
-}
+    textarea:focus { outline: none; }
+    textarea::placeholder { color: #aaa; }
 
-.header-controls {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 10px;
-}
+    #send-btn {
+      background: transparent;
+      border: none;
+      color: var(--primary-color);
+      font-size: 1.5em;
+      cursor: pointer;
+      padding: 0 0.5em;
+    }
 
-.header-btn {
-  background-color: rgba(255,255,255,0.2);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
+    .header-controls {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 10px;
+    }
 
-.developers-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  z-index: 100;
-  align-items: center;
-  justify-content: center;
-}
+    .header-btn {
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
 
-.modal-content {
-  background-color: var(--light-bg);
-  padding: 2em;
-  border-radius: 15px;
-  max-width: 500px;
-  width: 90%;
-}
+    .developers-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
 
-.close-modal {
-  position: absolute;
-  top: 15px; left: 15px;
-  font-size: 1.5em;
-  cursor: pointer;
-  color: #aaa;
-}
+    .modal-content {
+      background-color: var(--light-bg);
+      padding: 2em;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
 
-label { display: block; margin-top: 1em; }
-select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; border: none; }
+    .close-modal {
+      position: absolute;
+      top: 15px; left: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #aaa;
+    }
 
+    label { display: block; margin-top: 1em; }
+    select, input { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; border: none; }
+    input[type="color"] { height: 40px; padding: 0; }
+
+    .developer-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 15px 0;
+      padding: 15px;
+      background-color: #333;
+      border-radius: 10px;
+    }
+
+    .developer-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .developer-info { flex: 1; }
+    .developer-name { font-weight: bold; font-size: 1.2em; }
+    .developer-link { color: var(--primary-color); text-decoration: none; display: inline-block; margin-top: 5px; }
+
+    .model-indicator {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.2);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+    }
+
+    .color-options {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .color-option {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+
+    .color-option.selected {
+      border-color: white;
+    }
+
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #444;
+    }
+
+    .tab-button {
+      padding: 10px 15px;
+      background: none;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-button.active {
+      color: white;
+      border-bottom-color: var(--primary-color);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -173,31 +261,99 @@ select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; bo
       <button class="header-btn" onclick="toggleDevelopers()"><i class="fas fa-users"></i></button>
     </div>
     FAGOUSA AI
-  </header>  <div id="chat">
+    <div class="model-indicator" id="model-indicator">Gemini</div>
+  </header>
+
+  <div id="chat">
     <div class="bot message">مرحبا بيك في FAGOUSA AI</div>
-  </div>  <footer>
+  </div>
+
+  <footer>
     <div id="input-container">
       <textarea id="input" rows="1" placeholder="اكتب ميساجك هنا 🙂"></textarea>
       <button id="send-btn" onclick="sendMessage()">&#9993;</button>
     </div>
-  </footer>  <div id="settings-modal" class="developers-modal">
+  </footer>
+
+  <div id="settings-modal" class="developers-modal">
     <div class="modal-content">
       <span class="close-modal" onclick="toggleSettings()">&times;</span>
       <h2>إعدادات المظهر</h2>
-      <label for="color-picker">لون الموقع:</label>
-      <select id="color-picker" onchange="updateColor()">
-        <!-- الألوان -->
-        <option value="#4285F4">أزرق</option>
-        <!-- بقية الخيارات ... -->
-      </select>
-      <label for="font-picker">الخط:</label>
-      <select id="font-picker" onchange="updateFont()">
-        <!-- الخطوط -->
-        <option value="Cairo">Cairo</option>
-        <!-- بقية الخيارات ... -->
-      </select>
+      
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab('appearance-tab')">المظهر</button>
+        <button class="tab-button" onclick="openTab('ai-tab')">نموذج الذكاء الاصطناعي</button>
+      </div>
+      
+      <div id="appearance-tab" class="tab-content active">
+        <label for="color-picker">لون الموقع:</label>
+        <input type="color" id="color-picker" value="#4285F4" onchange="updateColor(this.value)">
+        
+        <div class="color-options">
+          <div class="color-option selected" style="background: #4285F4;" onclick="updateColor('#4285F4')"></div>
+          <div class="color-option" style="background: #34A853;" onclick="updateColor('#34A853')"></div>
+          <div class="color-option" style="background: #EA4335;" onclick="updateColor('#EA4335')"></div>
+          <div class="color-option" style="background: #FBBC05;" onclick="updateColor('#FBBC05')"></div>
+          <div class="color-option" style="background: #673AB7;" onclick="updateColor('#673AB7')"></div>
+          <div class="color-option" style="background: #FF5722;" onclick="updateColor('#FF5722')"></div>
+          <div class="color-option" style="background: #E91E63;" onclick="updateColor('#E91E63')"></div>
+          <div class="color-option" style="background: #00BCD4;" onclick="updateColor('#00BCD4')"></div>
+        </div>
+        
+        <label for="font-picker">الخط:</label>
+        <select id="font-picker" onchange="updateFont()">
+          <option value="Cairo">Cairo</option>
+          <option value="Tajawal">Tajawal</option>
+          <option value="Changa">Changa</option>
+          <option value="Amiri">Amiri</option>
+          <option value="Lateef">Lateef</option>
+          <option value="Reem Kufi">Reem Kufi</option>
+          <option value="IBM Plex Sans Arabic">IBM Plex Sans Arabic</option>
+          <option value="Almarai">Almarai</option>
+          <option value="Lalezar">Lalezar</option>
+          <option value="Mada">Mada</option>
+        </select>
+        
+        <label for="bg-picker">لون الخلفية:</label>
+        <select id="bg-picker" onchange="updateBackground()">
+          <option value="#1a1a1a">داكن</option>
+          <option value="#f5f5f5">فاتح</option>
+          <option value="#121212">أسود</option>
+        </select>
+      </div>
+      
+      <div id="ai-tab" class="tab-content">
+        <label>نموذج الذكاء الاصطناعي:</label>
+        <div style="margin-top: 10px;">
+          <label style="display: inline-flex; align-items: center; cursor: pointer;">
+            <input type="radio" name="ai-model" value="gemini" checked onchange="changeAIModel(this.value)" style="width: auto; margin-left: 10px;">
+            <span>FAGOUSA AI (Gemini)</span>
+          </label>
+          <label style="display: inline-flex; align-items: center; cursor: pointer; margin-right: 20px;">
+            <input type="radio" name="ai-model" value="chatgpt" onchange="changeAIModel(this.value)" style="width: auto; margin-left: 10px;">
+            <span>FAGOUSA AI (ChatGPT)</span>
+          </label>
+        </div>
+        
+        <div id="gemini-settings" style="margin-top: 20px;">
+          <h3>إعدادات Gemini</h3>
+          <label style="display: flex; align-items: center; cursor: pointer;">
+            <input type="checkbox" id="enable-images" style="width: auto; margin-left: 10px;">
+            <span>تفعيل إنشاء الصور (لطلبات إنشاء الصور فقط)</span>
+          </label>
+          <p style="font-size: 0.8em; color: #aaa; margin-top: 5px;">عند تفعيل هذا الخيار، يمكنك كتابة "اصنع صورة..." لإنشاء صور بواسطة الذكاء الاصطناعي</p>
+        </div>
+        
+        <div id="chatgpt-settings" style="margin-top: 20px; display: none;">
+          <h3>إعدادات ChatGPT</h3>
+          <label for="chatgpt-key">مفتاح API:</label>
+          <input type="text" id="chatgpt-key" placeholder="أدخل مفتاح API لـ ChatGPT">
+        </div>
+      </div>
     </div>
-  </div>  <div id="developers-modal" class="developers-modal">
+  </div>
+
+  <div id="developers-modal" class="developers-modal">
     <div class="modal-content">
       <span class="close-modal" onclick="toggleDevelopers()">&times;</span>
       <h2>مطورو الموقع</h2>
@@ -210,16 +366,33 @@ select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; bo
         </div>
       </div>
     </div>
-  </div>  <script>
-    const API_KEY = "AIzaSyDerpD8vIBVv6MKTpLOypNoDBkLmZu1vZM";
-    const BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+  </div>
+
+  <script>
+    const GEMINI_API_KEY = "AIzaSyDerpD8vIBVv6MKTpLOypNoDBkLmZu1vZM";
+    const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+    const IMAGE_GENERATION_MODEL = "gemini-2.0-flash-preview-image-generation";
+    
+    let currentModel = 'gemini';
+    let enableImageGeneration = false;
+    let chatGPTKey = '';
 
     const chat = document.getElementById('chat');
     const input = document.getElementById('input');
+    const modelIndicator = document.getElementById('model-indicator');
+
+    // تحسين إرسال الرسالة عند الضغط على Enter
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
 
     async function sendMessage() {
       const userText = input.value.trim();
       if (!userText) return;
+      
       appendMessage(userText, 'user');
       input.value = '';
 
@@ -227,7 +400,55 @@ select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; bo
       appendTyping(loadingId);
 
       try {
-        const res = await fetch(`${BASE_URL}?key=${API_KEY}`, {
+        if (currentModel === 'gemini') {
+          await handleGeminiResponse(userText, loadingId);
+        } else {
+          await handleChatGPTResponse(userText, loadingId);
+        }
+      } catch (e) {
+        console.error(e);
+        removeTyping(loadingId);
+        appendMessage('صار مشكل في الاتصال 😔', 'bot');
+      }
+    }
+
+    async function handleGeminiResponse(userText, loadingId) {
+      // التحقق مما إذا كان الطلب لإنشاء صورة
+      const isImageRequest = enableImageGeneration && userText.toLowerCase().startsWith('اصنع صورة');
+      
+      if (isImageRequest) {
+        // إنشاء صورة باستخدام Gemini
+        const prompt = userText.replace('اصنع صورة', '').trim();
+        const res = await fetch(`${GEMINI_BASE_URL}?key=${GEMINI_API_KEY}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [
+              { 
+                role: "user", 
+                parts: [
+                  { text: "Create an image: " + prompt + " Respond only with the image, no text." }
+                ]
+              }
+            ],
+            model: IMAGE_GENERATION_MODEL,
+            generationConfig: {
+              responseMimeType: "image/png"
+            }
+          })
+        });
+        
+        if (res.ok) {
+          const blob = await res.blob();
+          const imageUrl = URL.createObjectURL(blob);
+          removeTyping(loadingId);
+          appendImageMessage(imageUrl, 'bot');
+        } else {
+          throw new Error('Failed to generate image');
+        }
+      } else {
+        // إرسال رسالة نصية عادية
+        const res = await fetch(`${GEMINI_BASE_URL}?key=${GEMINI_API_KEY}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -240,9 +461,39 @@ select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; bo
         const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'ما جاوبنيش السيرفر 😕';
         removeTyping(loadingId);
         appendMessage(reply, 'bot');
+      }
+    }
+
+    async function handleChatGPTResponse(userText, loadingId) {
+      if (!chatGPTKey) {
+        removeTyping(loadingId);
+        appendMessage('الرجاء إدخال مفتاح API لـ ChatGPT في الإعدادات', 'bot');
+        return;
+      }
+      
+      try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${chatGPTKey}`
+          },
+          body: JSON.stringify({
+            model: 'gpt-3.5-turbo',
+            messages: [
+              { role: 'user', content: userText + " جاوبني بالجزائرية" }
+            ],
+            temperature: 0.7
+          })
+        });
+        
+        const data = await response.json();
+        const reply = data?.choices?.[0]?.message?.content || 'ما جاوبنيش السيرفر 😕';
+        removeTyping(loadingId);
+        appendMessage(reply, 'bot');
       } catch (e) {
         removeTyping(loadingId);
-        appendMessage('صار مشكل في الاتصال 😔', 'bot');
+        appendMessage('مشكلة في الاتصال بـ ChatGPT. تأكد من صحة مفتاح API', 'bot');
       }
     }
 
@@ -254,11 +505,27 @@ select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; bo
       chat.scrollTop = 0;
     }
 
+    function appendImageMessage(imageUrl, sender) {
+      const msg = document.createElement('div');
+      msg.className = `${sender} message`;
+      
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.alt = 'صورة من إنشاء الذكاء الاصطناعي';
+      
+      msg.appendChild(document.createTextNode('ها هي الصورة التي طلبتها:'));
+      msg.appendChild(document.createElement('br'));
+      msg.appendChild(img);
+      
+      chat.prepend(msg);
+      chat.scrollTop = 0;
+    }
+
     function appendTyping(id) {
       const msg = document.createElement('div');
       msg.className = 'bot message';
       msg.id = id;
-      msg.innerText ='ستنى...';
+      msg.innerText = 'ستنى...';
       chat.prepend(msg);
     }
 
@@ -277,15 +544,121 @@ select { width: 100%; padding: 0.5em; margin-top: 0.5em; border-radius: 10px; bo
       modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
     }
 
-    function updateColor() {
-      const color = document.getElementById('color-picker').value;
+    function updateColor(color) {
       document.documentElement.style.setProperty('--primary-color', color);
       document.documentElement.style.setProperty('--user-msg', color);
+      
+      // تحديث الزر المحدد في خيارات الألوان
+      document.querySelectorAll('.color-option').forEach(opt => {
+        opt.classList.remove('selected');
+        if (opt.style.backgroundColor === color || 
+            (color === '#4285F4' && opt.style.backgroundColor === 'rgb(66, 133, 244)')) {
+          opt.classList.add('selected');
+        }
+      });
+      
+      // تحديث منتقي الألوان
+      document.getElementById('color-picker').value = color;
     }
 
     function updateFont() {
       const font = document.getElementById('font-picker').value;
       document.body.style.fontFamily = `'${font}', sans-serif`;
     }
-  </script></body>
-</html>
+    
+    function updateBackground() {
+      const bg = document.getElementById('bg-picker').value;
+      document.documentElement.style.setProperty('--dark-bg', bg);
+      document.documentElement.style.setProperty('--light-bg', bg === '#f5f5f5' ? '#e0e0e0' : '#222');
+      document.documentElement.style.setProperty('--bot-msg', bg === '#f5f5f5' ? '#e0e0e0' : '#333');
+      document.body.style.color = bg === '#f5f5f5' ? '#333' : 'white';
+    }
+
+    function changeAIModel(model) {
+      currentModel = model;
+      modelIndicator.textContent = model === 'gemini' ? 'Gemini' : 'ChatGPT';
+      
+      document.getElementById('gemini-settings').style.display = model === 'gemini' ? 'block' : 'none';
+      document.getElementById('chatgpt-settings').style.display = model === 'chatgpt' ? 'block' : 'none';
+      
+      // حفظ الإعدادات في localStorage
+      localStorage.setItem('aiModel', model);
+    }
+    
+    function openTab(tabId) {
+      // إخفاء جميع المحتويات
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      // إلغاء تنشيط جميع الأزرار
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // عرض المحتوى المحدد وتنشيط الزر
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+    
+    // تحميل الإعدادات المحفوظة عند بدء التشغيل
+    window.onload = function() {
+      const savedModel = localStorage.getItem('aiModel');
+      if (savedModel) {
+        currentModel = savedModel;
+        document.querySelector(`input[name="ai-model"][value="${savedModel}"]`).checked = true;
+        modelIndicator.textContent = savedModel === 'gemini' ? 'Gemini' : 'ChatGPT';
+        
+        document.getElementById('gemini-settings').style.display = savedModel === 'gemini' ? 'block' : 'none';
+        document.getElementById('chatgpt-settings').style.display = savedModel === 'chatgpt' ? 'block' : 'none';
+      }
+      
+      const savedColor = localStorage.getItem('primaryColor');
+      if (savedColor) {
+        updateColor(savedColor);
+      }
+      
+      const savedFont = localStorage.getItem('fontFamily');
+      if (savedFont) {
+        document.getElementById('font-picker').value = savedFont;
+        updateFont();
+      }
+      
+      const savedBg = localStorage.getItem('backgroundColor');
+      if (savedBg) {
+        document.getElementById('bg-picker').value = savedBg;
+        updateBackground();
+      }
+      
+      enableImageGeneration = localStorage.getItem('enableImages') === 'true';
+      document.getElementById('enable-images').checked = enableImageGeneration;
+      
+      chatGPTKey = localStorage.getItem('chatGPTKey') || '';
+      document.getElementById('chatgpt-key').value = chatGPTKey;
+    };
+    
+    // حفظ الإعدادات عند التغيير
+    document.getElementById('enable-images').addEventListener('change', function() {
+      enableImageGeneration = this.checked;
+      localStorage.setItem('enableImages', enableImageGeneration);
+    });
+    
+    document.getElementById('chatgpt-key').addEventListener('change', function() {
+      chatGPTKey = this.value;
+      localStorage.setItem('chatGPTKey', chatGPTKey);
+    });
+    
+    document.getElementById('color-picker').addEventListener('change', function() {
+      localStorage.setItem('primaryColor', this.value);
+    });
+    
+    document.getElementById('font-picker').addEventListener('change', function() {
+      localStorage.setItem('fontFamily', this.value);
+    });
+    
+    document.getElementById('bg-picker').addEventListener('change', function() {
+      localStorage.setItem('backgroundColor', this.value);
+    });
+  </script>
+</body>
+              </html>
